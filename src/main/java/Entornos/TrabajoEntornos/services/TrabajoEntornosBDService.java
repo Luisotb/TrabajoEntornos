@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 /*permite conectar a la app con el exterior,
  mediante el service se lanzan las consultas usando el repository*/
 @Service
- public class TrabajoEntornosBDservice{
+ public class TrabajoEntornosBDService{
 
     @Autowired
     TrabajoEntornosRepository entornosRepository;

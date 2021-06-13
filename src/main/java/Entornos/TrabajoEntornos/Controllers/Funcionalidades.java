@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import Entornos.TrabajoEntornos.models.TrabajoEntornosModel;
 import Entornos.TrabajoEntornos.services.ContarVocalesConsonantes;
-import Entornos.TrabajoEntornos.services.TrabajoEntornosBDservice;
+import Entornos.TrabajoEntornos.services.TrabajoEntornosBDService;
 import Entornos.TrabajoEntornos.services.TransformarFrase;
 
 @RestController
@@ -55,7 +55,7 @@ public class Funcionalidades {
     }
 
     @Autowired
-    TrabajoEntornosBDservice trabajoBDservice;
+    TrabajoEntornosBDService trabajoBDservice;
 
     @PostMapping("/insertaDatos")
     public String insertaDatos(@RequestParam Map<String, String> body) {
