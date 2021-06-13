@@ -11,14 +11,16 @@ class ResponseData{
 class Traduction{
     public ResponseData responseData;
 }
+
 @Service
-public class TraductorService {
+public class TraduceService {
     @Autowired
     RestTemplate restTemplate;
 
-    public String getTraduccion(String frase){
+    public  String getTraduccion(String frase){
         String url = "https://api.mymemory.translated.net/get?q=" + frase + "&langpair=es|en";
-        Traduction json = restTemplate.getForObject(url, Traduction.class);
+        Traduction json = restTemplate.getForObject(url,Traduction.class);
         return json.responseData.translatedText;
+
     }
 }

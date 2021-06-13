@@ -11,17 +11,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import Entornos.TrabajoEntornos.models.TrabajoEntornosModel;
 import Entornos.TrabajoEntornos.services.ContarVocalesConsonantes;
-import Entornos.TrabajoEntornos.services.TrabajoEntornosBDService;
+import Entornos.TrabajoEntornos.services.TrabajoEntornosBDservice;
 import Entornos.TrabajoEntornos.services.TransformarFrase;
-
 
 @RestController
 
 public class Funcionalidades {
-    
+
     @Autowired
     ContarVocalesConsonantes contar;
-    
+
     @GetMapping("/")
     public String explicacion() {
         return
@@ -32,13 +31,13 @@ public class Funcionalidades {
 
                 "<br>" + "<br>" +
 
-                "- Para guardar datos en la base de datos, escribe: '/insertarDatos'" +
+                "- Para guardar datos en la base de datos, escribe: '/insertaDatos'" +
 
                 "<br>" + "<br>" +
 
                 "- Para listar los datos de la base, escribe: '/listarDatos'" + "<br>" + "<br>" +
 
-                "- Para mostrar una frase al reves, escribe: /fraseAlReves/{texto} ";
+                "- Para mostrar una frase al reves, escribe: /traductorAscii/{texto} ";
     }
 
     @GetMapping("/contar/{palabra}")
@@ -54,15 +53,16 @@ public class Funcionalidades {
     }
 
     @Autowired
-    TrabajoEntornosBDService trabajoBDservice;
+    TrabajoEntornosBDservice trabajoBDservice;
 
     @PostMapping("/insertaDatos")
-    public String introduceDatos(@RequestParam Map<String, String> body) {
+    public String insertaDatos(@RequestParam Map<String, String> body) {
         System.out.println(body.get("dato"));
         TrabajoEntornosModel entornosModel = new TrabajoEntornosModel();
         entornosModel.setDato(body.get("dato"));
         trabajoBDservice.guardarDatos(entornosModel);
-        return "Dato guardado correctamente";
+        return "Dato guardado correctamente.";
+
     }
 
     @GetMapping("/listarDatos")
