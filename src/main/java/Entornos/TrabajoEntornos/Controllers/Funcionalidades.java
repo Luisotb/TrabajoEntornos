@@ -37,7 +37,9 @@ public class Funcionalidades {
 
                 "- Para listar los datos de la base, escribe: '/listarDatos'" + "<br>" + "<br>" +
 
-                "- Para mostrar una frase al reves, escribe: /traductorAscii/{texto} ";
+                "- Para mostrar una frase al reves, escribe: /traductorAscii/{texto} " + "<br>" + "<br>" +
+
+                "- Para traducir algo escribe: /traduce/{texto}";
     }
 
     @GetMapping("/contar/{palabra}")
