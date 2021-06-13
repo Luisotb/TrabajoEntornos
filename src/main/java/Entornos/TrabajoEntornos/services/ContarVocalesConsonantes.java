@@ -1,5 +1,7 @@
 package Entornos.TrabajoEntornos.services;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ContarVocalesConsonantes {
     
     public static boolean esVocal(char letra){
